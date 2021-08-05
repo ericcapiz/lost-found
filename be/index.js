@@ -3,6 +3,7 @@ const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
+const userRoute = require("./routes/usersRoute");
 
 dotenv.config();
 app.use(express.json());
@@ -12,6 +13,7 @@ mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
+    useFindAndModify: false
 }).then(console.log("Connected to MOngoDB")).catch((err)=> console.log(err))
 
 
@@ -20,6 +22,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT,()=>{
