@@ -27,7 +27,7 @@ const Register = () => {
     return (
         <div className="register">
             <span className="registerTitle">Register</span>
-            {error && <span style={{ fontSize:"1.1rem", color:"brown", marginTop:"10px"}}>Account already exists with username/email. <br /> 
+            {error && <span style={{ fontSize:"1.1rem", color:"brown", marginTop:"10px"}}>Account already exists with username and/or email. <br /> 
             Please  <Link style={{color:"#0000FF", fontWeight:"bold", textDecoration:"none", fontSize:"1.1rem"}} to="/login">Login</Link> to continue </span>}
             <form onSubmit={handleSubmit} className="registerForm">
                 <label>Username</label>
