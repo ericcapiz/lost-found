@@ -31,11 +31,11 @@ const Register = () => {
             Please  <Link style={{color:"#0000FF", fontWeight:"bold", textDecoration:"none", fontSize:"1.1rem"}} to="/login">Login</Link> to continue </span>}
             <form onSubmit={handleSubmit} className="registerForm">
                 <label>Username</label>
-                <input className="registerInput" autoComplete="false" onChange={e=>setUsername(e.target.value)} type="text" placeholder="Username"/>
+                <input className="registerInput" autoComplete="off" onChange={e=>setUsername(e.target.value)} type="text" placeholder="Username"/>
                 <label>Email</label>
-                <input className="registerInput" autoComplete="false" onChange={e=>setEmail(e.target.value)} type="text" placeholder="Email"/>
+                <input className="registerInput" autoComplete="off" onChange={e=>setEmail(e.target.value)} type="text" placeholder="Email"/>
                 <label>Password</label>
-                <input className="registerInput" autoComplete="false" type="password" onChange={e=>setPassword(e.target.value)} placeholder="Password"/>
+                <input className="registerInput" autoComplete="off" type="password" onChange={e=>setPassword(e.target.value)} placeholder="Password"/>
                 <button className="registerButton" type="submit">Register</button>
             </form>
             <button className="loginButton"><Link className="link" to="/login">Login</Link></button>
