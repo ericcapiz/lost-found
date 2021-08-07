@@ -23,9 +23,10 @@ const Sidebar = () => {
             </div>
             <div className="sidebarItem">
                 <span className="sidebarTitle">SORT BY CATEGORY</span>
+                <p>Here are some key categories. You can click on one to sort posts by category. When posting, you can also add your own category. Remember to be specific!</p>
                 <ul className="sidebarList">
                   {cat.map((c)=>(
-                    <Link  key={c._id} className="link" to={`/?cat=${c.name}`}><li  key={c._id}>{c.name.toUpperCase()}</li></Link>
+                    <Link  key={c._id} className="link" to={`/?cat=${c.name}`}><li className="sidebarListItem"  key={c._id}>{c.name.toUpperCase()}</li></Link>
                     ))}
                 </ul>
             </div>

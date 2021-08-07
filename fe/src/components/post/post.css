@@ -31,10 +31,11 @@
   }
   
   .postTitle {
+    display: flex;
     font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
     font-size: 24px;
     font-weight: 900;
-    margin-top: 15px;
+    margin: 25px 0;
     cursor: pointer;
   }
   

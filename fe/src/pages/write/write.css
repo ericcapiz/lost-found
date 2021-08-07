@@ -51,12 +51,15 @@
     outline-style: none;
   }
   
-  .writeText {
+  .writeText, .writeCat {
     width: 70vw;
-    height: 20vh;
+    height: 10vh;
     font-family: inherit;
     font-size: 20px;
+    border: 1px dotted grey;
   }
+
+
   
   .writeSubmit {
     position: absolute;

@@ -19,6 +19,8 @@ const Write = () => {
             categories: cat,
         };
 
+
+
         if(file){
             const data = new FormData();
             const filename = Date.now() +file.name;
@@ -57,9 +59,9 @@ const Write = () => {
                 <div className="writeFormGroup">
                     <textarea className="writeInput writeText"  onChange={e=>setDesc(e.target.value)} placeholder="Be detailed as posible. Click '+' to add picture..." text="text"></textarea>
                 </div>
-                <hr />
+               
                 <div className="writeFormGroup">
-                    <input className="writeInput writeText" onChange={e=>setCat(e.target.value)} placeholder="Type a category, i.e keys, wallet, electronic, miscellaneous" text="text" />
+                    <input className="writeInput writeCat" onChange={e=>setCat(e.target.value).toLowerCase()} placeholder="Add 1 category type, i.e keys, wallet, electronic, miscellaneous, etc" text="text" />
                 </div>
                 <button className="writeSubmit" type="submit">Post Item</button>
             </form>
