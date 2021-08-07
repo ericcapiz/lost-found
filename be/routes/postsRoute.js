@@ -10,7 +10,7 @@ router.post("/", async (req,res)=>{
         const savedPost = await newPost.save()
         res.status(200).json(savedPost)
     } catch (error) {
-        res.status(500)
+        res.status(500).json(error)
     }
 })
 
@@ -32,7 +32,7 @@ router.put("/:id", async (req,res)=>{
             res.status(401).json("You can only update your own posts!")
         }
     } catch (error) {
-        res.status(500)
+        res.status(500).json(error)
     }
 })
 
@@ -44,14 +44,14 @@ router.delete("/:id", async (req, res) => {
         try {
           await post.delete();
           res.status(200).json("Post has been deleted!");
-        } catch (err) {
-          res.status(500)
+        } catch (error) {
+          res.status(500).json(error)
         }
       } else {
         res.status(401).json("You can delete only your post!");
       }
-    } catch (err) {
-      res.status(500)
+    } catch (error) {
+      res.status(500).json(error)
     }
   });
 

@@ -17,7 +17,7 @@ router.put("/:id", async (req,res)=>{
             },{new: true})
             res.status(200).json(updatedUser)
         } catch (error) {
-            res.status(500);
+            res.status(500).json(error);
         }
     }else{
         res.status(401).json("You can only update your own account!")
@@ -35,7 +35,7 @@ router.delete("/:id", async (req,res)=>{
                 await User.findByIdAndDelete(req.params.id)
                 res.status(200).json("Account has been deleted")
             } catch (error) {
-                res.status(500);
+                res.status(500).json(error);
             }
         } catch (error) {
             res.status(404).json("User not found")
@@ -52,7 +52,7 @@ router.get("/:id", async (req,res)=>{
         const {password, ...others} = user._doc;
         res.status(200).json(others);
     } catch (error) {
-        res.status(500);
+        res.status(500).json(error);
     }
 })
 
