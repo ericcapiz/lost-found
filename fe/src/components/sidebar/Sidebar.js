@@ -1,6 +1,18 @@
+import {useState, useEffect} from 'react';
+import axios from 'axios';
 import './sidebar.css'
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
+    const [cat,setCat] = useState([]);
+
+    useEffect(()=>{
+        const getCats = async ()=>{
+            const res = await axios.get("/categories")
+            setCat(res.data)
+        }
+        getCats();
+    },[])
     return (
         <div className="sidebar">
             <div className="sidebarItem">
@@ -10,14 +22,11 @@ const Sidebar = () => {
                 <p>If you found an item, create a post and a way for someone to contact you. Preferably an email.</p>
             </div>
             <div className="sidebarItem">
-                <span className="sidebarTitle">CATEGORIES</span>
+                <span className="sidebarTitle">SORT BY CATEGORY</span>
                 <ul className="sidebarList">
-                   <li className="sidebarListItem"><i className="fas fa-paw">Pets</i></li> 
-                   <li className="sidebarListItem">&nbsp;<i className="fas fa-gem">Jewlery</i></li> 
-                   <li className="sidebarListItem">&nbsp;<i className="fas fa-wallet">Wallet/Purses</i></li> 
-                   <li className="sidebarListItem">&nbsp;<i className="fas fa-key">Keys</i></li> 
-                   <li className="sidebarListItem">&nbsp;<i className="fas fa-laptop-medical">Electronics</i></li>
-                   <li className="sidebarListItem">&nbsp;<i className="fas fa-random">Miscellaneous</i></li> 
+                  {cat.map((c)=>(
+                    <Link className="link" key={c._id} to={`/?cat=${c.name}`}><li>{c.name.toUpperCase()}</li></Link>
+                    ))}
                 </ul>
             </div>
             <div className="sidebarItem">

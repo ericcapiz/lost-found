@@ -51,3 +51,4 @@ app.listen(PORT,()=>{
 
 //demo login
 //username: demo, email: test@gmail.com, password: password
+//username: demo2, email: demo2@gmail.com, password: password
