@@ -8,7 +8,7 @@ import PostPage from "./pages/postpage/PostPage";
 import HomePage from "./pages/homepage/HomePage";
 
 function App() {
-  const currentUser = true;
+  const currentUser = false;
 
     return (
       <Router>
