@@ -61,7 +61,7 @@ const Write = () => {
                 </div>
                
                 <div className="writeFormGroup">
-                    <input className="writeInput writeCat" onChange={e=>setCat(e.target.value).toLowerCase()} placeholder="Add 1 category type, i.e keys, wallet, electronic, miscellaneous, etc" text="text" />
+                    <input className="writeInput writeCat" onChange={e=>setCat(e.target.value.toLowerCase())} placeholder="Add 1 category type, i.e keys, wallet, electronic, miscellaneous, etc" text="text" />
                 </div>
                 <button className="writeSubmit" type="submit">Post Item</button>
             </form>

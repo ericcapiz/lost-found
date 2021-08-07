@@ -14,7 +14,7 @@ const Post = ({post}) => {
             </Link>
                 <div className="postCats">
                 {post.categories.map((c) => (
-                   <Link className="link" key={c._id} to={`/?cat=${c}`}> <span key={c._id} className="postCat">{c.toUpperCase()}</span></Link> 
+                   <span key={c._id} className="postCat">Category:<Link className="link" key={c._id} to={`/?cat=${c}`}>  {c.toUpperCase()}</Link> </span>
                 ))}
                 </div>
             <br />
