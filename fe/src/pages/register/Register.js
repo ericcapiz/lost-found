@@ -27,6 +27,8 @@ const Register = () => {
     return (
         <div className="register">
             <span className="registerTitle">Register</span>
+            {error && <span style={{ fontSize:"1.1rem", color:"brown", marginTop:"10px"}}>Account already exists with username/email. <br /> 
+            Please  <Link style={{color:"#0000FF", fontWeight:"bold", textDecoration:"none", fontSize:"1.1rem"}} to="/login">Login</Link> to continue </span>}
             <form onSubmit={handleSubmit} className="registerForm">
                 <label>Username</label>
                 <input className="registerInput" autoComplete="false" onChange={e=>setUsername(e.target.value)} type="text" placeholder="Username"/>
@@ -37,7 +39,6 @@ const Register = () => {
                 <button className="registerButton" type="submit">Register</button>
             </form>
             <button className="loginButton"><Link className="link" to="/login">Login</Link></button>
-            {error && <span>Account already exists with username/email. </span>}
         </div>
 
        
