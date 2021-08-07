@@ -6,6 +6,7 @@ import './write.css'
 const Write = () => {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
+    const [cat, setCat] = useState([]);
     const [file, setFile] = useState(null);
     const {user} = useContext(Context);
 
@@ -15,6 +16,7 @@ const Write = () => {
             username: user.username,
             title,
             desc,
+            categories: cat,
         };
 
         if(file){
@@ -37,6 +39,7 @@ const Write = () => {
             console.log(error);
         }
     }
+    console.log(cat)
     return (
         <div className="write">
             {file && (
@@ -52,7 +55,11 @@ const Write = () => {
                     <input className="writeInput" autoFocus type="text" placeholder="Title" onChange={e=>setTitle(e.target.value)} />
                 </div>
                 <div className="writeFormGroup">
-                    <textarea className="writeInput writeText" onChange={e=>setDesc(e.target.value)} placeholder="Be detailed as posible. Click '+' to add picture..." text="text"></textarea>
+                    <textarea className="writeInput writeText"  onChange={e=>setDesc(e.target.value)} placeholder="Be detailed as posible. Click '+' to add picture..." text="text"></textarea>
+                </div>
+                <hr />
+                <div className="writeFormGroup">
+                    <input className="writeInput writeText" onChange={e=>setCat(e.target.value)} placeholder="Type a category, i.e keys, wallet, electronic, miscellaneous" text="text" />
                 </div>
                 <button className="writeSubmit" type="submit">Post Item</button>
             </form>
