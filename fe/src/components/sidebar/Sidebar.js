@@ -25,7 +25,7 @@ const Sidebar = () => {
                 <span className="sidebarTitle">SORT BY CATEGORY</span>
                 <ul className="sidebarList">
                   {cat.map((c)=>(
-                    <Link className="link" key={c._id} to={`/?cat=${c.name}`}><li>{c.name.toUpperCase()}</li></Link>
+                    <Link  key={c._id} className="link" to={`/?cat=${c.name}`}><li  key={c._id}>{c.name.toUpperCase()}</li></Link>
                     ))}
                 </ul>
             </div>

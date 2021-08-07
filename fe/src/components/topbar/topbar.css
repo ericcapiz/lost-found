@@ -17,6 +17,12 @@
     align-items: center;
     justify-content: center;
   }
+
+  .h1Title{
+    font-size: 17px;
+    color: #444;
+    font-family: "Varela", sans-serif;
+  }
   
   .topIcon {
     font-size: 20px;

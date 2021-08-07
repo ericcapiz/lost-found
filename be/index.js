@@ -7,9 +7,11 @@ const userRoute = require("./routes/usersRoute");
 const postRoute = require("./routes/postsRoute");
 const categoryRoute = require("./routes/categoryRoute");
 const multer = require("multer");
+const path = require("path");
 
 dotenv.config();
 app.use(express.json());
+app.use("/images", express.static(path.join(__dirname,"/images")));
 
 
 mongoose.connect(process.env.MONGO_URL,{
@@ -51,4 +53,3 @@ app.listen(PORT,()=>{
 
 //demo login
 //username: demo, email: test@gmail.com, password: password
-//username: demo2, email: demo2@gmail.com, password: password

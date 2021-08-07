@@ -1,4 +1,6 @@
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "./context/Context";
 import Topbar from "./components/topbar/Topbar";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
@@ -7,8 +9,10 @@ import Write from "./pages/write/Write";
 import PostPage from "./pages/postpage/PostPage";
 import HomePage from "./pages/homepage/HomePage";
 
+
+
 function App() {
-  const currentUser = false;
+  const {user} = useContext(Context)
 
     return (
       <Router>
@@ -21,15 +25,15 @@ function App() {
           <HomePage />
         </Route>
         <Route path="/register">
-          {currentUser ? <HomePage /> : <Register />}
+          {user? <HomePage /> : <Register />}
         </Route>
-        <Route path="/login">{currentUser ? <HomePage /> : <Login />}</Route>
+        <Route path="/login">{user? <HomePage /> : <Login />}</Route>
         <Route path="/post/:id">
           <PostPage />
         </Route>
-        <Route path="/add">{currentUser ? <Write /> : <Login />}</Route>
+        <Route path="/add">{user? <Write /> : <Login />}</Route>
         <Route path="/settings">
-          {currentUser ? <Settings /> : <Login />}
+          {user? <Settings /> : <Login />}
         </Route>
       </Switch>
     </Router>

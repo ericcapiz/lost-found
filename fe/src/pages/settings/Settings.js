@@ -21,7 +21,7 @@ const Settings = () => {
                     <label>Username</label>
                     <input type="text" placeholder="username" />
                     <label>Email</label>
-                    <input type="email" placeholder="username@gmail.com" />
+                    <input type="email" placeholder="useremail@gmail.com" />
                     <label>Password</label>
                     <input type="password" />
                     <button className="settingsSubmitButton">Save Changes</button>

@@ -1,15 +1,21 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../../context/Context";
 import "./topbar.css"
 
 const Tobar = () => {
-    const user = false;
+    const {user,dispatch} = useContext(Context);
+
+
+    const handleLogout = ()=>{
+        dispatch({type:"LOGOUT"});
+        window.location.replace("/login");
+    }
+
     return (
         <div className="top">
             <div className="topLeft">
-                <i className="topIcon fab fa-facebook-square"></i>
-                <i className="topIcon fab fa-instagram-square"></i>
-                <i className="topIcon fab fa-pinterest-square"></i>
-                <i className="topIcon fab fa-twitter-square"></i>
+                <h1 className="h1Title" >Lost & Found</h1>
             </div>
             <div className="topCenter">
                 <ul className="topList">
@@ -17,22 +23,21 @@ const Tobar = () => {
                         <Link className="link" to="/">Home</Link>
                     </li>
                     <li className="topListItem">
-                        <Link className="link" to="/">About</Link>
-                    </li>
-                    <li className="topListItem">
                         <Link className="link" to="/add">Post Item</Link>
                     </li>
-                    <li className="topListItem">
+                    <li className="topListItem" onClick={handleLogout} >
                         {user && "Logout"}
                     </li>
+                    
                 </ul>
             </div>
             <div className="topRight">
                 {
                     user ? (
                         <>
-                            <img className="topImg" alt="profile" src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
-                            <i className=" topSearchIcon fas fa-search" />
+                            <p style={{marginRight:"15px"}}>Welcome, {user.username.toUpperCase()}</p>
+                            <img className="topImg" alt="" src={user.profilePic}/>
+                            <Link className="link" to="/settings">Account Settings</Link>
                         </>
                     ):(
                         <ul className="topList">
