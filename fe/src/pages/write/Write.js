@@ -36,7 +36,7 @@ const Write = () => {
         }
         try {
           const res = await axios.post("https://lost-my-stuff.herokuapp.com/api/posts", newPost);
-          window.location.replace("https://lost-my-stuff.herokuapp.com/api/post/"+res.data._id);
+          window.location.replace("/post/" + res.data._id);
         } catch (error) {
             console.log(error);
         }
