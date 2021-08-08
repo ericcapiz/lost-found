@@ -55,7 +55,8 @@ const Settings = () => {
         <div className="settings">
             <div className="settingsWrapper">
                 <div className="settingsTitle">
-                    <span className="settingsTitleUpdate">Update Account: MUST UPDATE EVERYTHING</span>
+                    <span className="settingsTitleUpdate">Update Account: <br/> <p className="settingsTitleDelete">If you need to change either the username, email and/or password, <br/> change the field(s) needed and type in the other fields with the current info.</p></span>
+                    
                     {/* <span className="settingsTitleDelete">Delete Account</span> */}
                 </div>
                 <form className="settingsForm" onSubmit={handleSubmit} >
