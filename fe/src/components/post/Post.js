@@ -5,7 +5,7 @@ import "./post.css"
 
 const Post = ({post}) => {
     const {user} = useContext(Context);
-    console.log(user)
+    console.log("user here",user)
     const PF = "https://lost-my-stuff.herokuapp.com/images/"
     return (
         <div className="post">
@@ -22,7 +22,7 @@ const Post = ({post}) => {
                 ))}
                 </div>
             <br />
-            <span className="singlePostAuthor">Posted By: <b>{user?.username}</b></span>
+            <span className="singlePostAuthor">Posted By: <b>{post.username}</b></span>
                 <hr/>
                 <span className="postDate">{ new Date(post.createdAt).toDateString()}</span>
             </div>
