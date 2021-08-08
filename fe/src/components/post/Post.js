@@ -5,7 +5,7 @@ import "./post.css"
 
 const Post = ({post}) => {
     const {user} = useContext(Context);
-    const PF = "http://localhost:5000/images/"
+    const PF = "https://lost-my-stuff.herokuapp.com/images/"
     return (
         <div className="post">
             {post.photo && (

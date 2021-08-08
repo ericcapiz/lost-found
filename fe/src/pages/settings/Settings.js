@@ -14,7 +14,7 @@ const Settings = () => {
     const [success, setSuccess] = useState(false);
     const {user, dispatch} = useContext(Context);
 
-    const PF = "http://localhost:5000/images/"
+    const PF = "https://lost-my-stuff.herokuapp.com/images/"
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
@@ -55,7 +55,7 @@ const Settings = () => {
             <div className="settingsWrapper">
                 <div className="settingsTitle">
                     <span className="settingsTitleUpdate">Update Account</span>
-                    <span className="settingsTitleDelete">Delete Account</span>
+                    {/* <span className="settingsTitleDelete">Delete Account</span> */}
                 </div>
                 <form className="settingsForm" onSubmit={handleSubmit} >
                     <label>Update Profile Picture</label>
