@@ -34,13 +34,13 @@ const Settings = () => {
             updatedUser.profilePic = filename;
 
             try {
-                await axios.post("/upload", data);
+                await axios.post("https://lost-my-stuff.herokuapp.com/api/upload", data);
             } catch (error) {
                 console.log(error);
             }
         }
         try {
-           const res = await axios.put("/users/"+user._id, updatedUser);
+           const res = await axios.put("https://lost-my-stuff.herokuapp.com/api/users/"+user._id, updatedUser);
             setSuccess(true)
             dispatch({type:"UPDATE_SUCCESS", payload: res.data})
         } catch (error) {

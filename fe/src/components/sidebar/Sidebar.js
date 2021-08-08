@@ -8,7 +8,7 @@ const Sidebar = () => {
 
     useEffect(()=>{
         const getCats = async ()=>{
-            const res = await axios.get("/categories")
+            const res = await axios.get("https://lost-my-stuff.herokuapp.com/api/categories")
             setCat(res.data)
         }
         getCats();

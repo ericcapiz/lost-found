@@ -17,7 +17,7 @@ const SinglePost = () => {
 
     useEffect(()=>{
         const getPost = async ()=>{
-            const res = await axios.get("/posts/" + path);
+            const res = await axios.get("https://lost-my-stuff.herokuapp.com/api/posts/" + path);
             setPosts(res.data);
             setTitle(res.data.title);
             setDesc(res.data.desc);
@@ -27,7 +27,7 @@ const SinglePost = () => {
 
     const handleDelete = async () =>{
         try {
-            await axios.delete(`/posts/${post._id}`, {data: {username:user.username}})
+            await axios.delete(`https://lost-my-stuff.herokuapp.com/api/posts/${post._id}`, {data: {username:user.username}})
             window.location.replace("/")
         } catch (error) {
             console.log(error)
@@ -36,7 +36,7 @@ const SinglePost = () => {
 
     const handleUpdate = async()=>{
         try {
-            await axios.put(`/posts/${post._id}`,  {username:user.username, title, desc})
+            await axios.put(`https://lost-my-stuff.herokuapp.com/api/posts/${post._id}`,  {username:user.username, title, desc})
             setUpdateMode(false);
         } catch (error) {
             console.log(error)
