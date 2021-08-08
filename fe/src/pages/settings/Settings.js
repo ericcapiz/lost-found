@@ -12,12 +12,13 @@ const Settings = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [success, setSuccess] = useState(false);
-    const {user} = useContext(Context);
+    const {user, dispatch} = useContext(Context);
 
     const PF = "http://localhost:5000/images/"
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
+        dispatch({type:"UPDATE_START"});
         const updatedUser = {
             userId: user._id,
             username,
@@ -39,10 +40,12 @@ const Settings = () => {
             }
         }
         try {
-            await axios.put("/users/"+user._id, updatedUser);
+           const res = await axios.put("/users/"+user._id, updatedUser);
             setSuccess(true)
+            dispatch({type:"UPDATE_SUCCESS", payload: res.data})
         } catch (error) {
             console.log(error);
+            dispatch({type:"UPDATE_FAILURE"})
         }
     }
 
@@ -57,7 +60,7 @@ const Settings = () => {
                 <form className="settingsForm" onSubmit={handleSubmit} >
                     <label>Update Profile Picture</label>
                     <div className="settingsPP">
-                        <img src={ PF + user.profilePic} alt="profile" />
+                        <img src={ file ? URL.createObjectURL(file) : PF + user.profilePic} alt="profile" />
                         <label htmlFor="fileInput">
                         <i className="settingsPPIcon fas fa-user"></i>
                         </label>
@@ -70,7 +73,7 @@ const Settings = () => {
                     <label>Password</label>
                     <input type="password" onChange={e=>setPassword(e.target.value)} />
                     <button className="settingsSubmitButton" type="submit">Save Changes</button>
-                    {success && <span style={{color:"green", textAlign:"center", marginTop:"20px"}}>Profile Updated Sucessfully! <br/>Please logout and log back for changes to take effect!</span>}
+                    {success && <span style={{color:"green", textAlign:"center", marginTop:"20px"}}>Profile Updated Sucessfully!</span>}
                 </form>
             </div>
             <Sidebar />

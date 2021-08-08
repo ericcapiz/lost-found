@@ -1,7 +1,10 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { Context } from "../../context/Context"
 import "./post.css"
 
 const Post = ({post}) => {
+    const {user} = useContext(Context);
     const PF = "http://localhost:5000/images/"
     return (
         <div className="post">
@@ -18,7 +21,7 @@ const Post = ({post}) => {
                 ))}
                 </div>
             <br />
-            <span className="singlePostAuthor">Posted By: <b>{post.username.toUpperCase()}</b></span>
+            <span className="singlePostAuthor">Posted By: <b>{user.username}</b></span>
                 <hr/>
                 <span className="postDate">{new Date(post.createdAt).toDateString()}</span>
             </div>
