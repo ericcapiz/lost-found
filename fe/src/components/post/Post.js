@@ -24,7 +24,7 @@ const Post = ({post}) => {
             <br />
             <span className="singlePostAuthor">Posted By: <b>{user?.username}</b></span>
                 <hr/>
-                <span className="postDate">{new Date(post.createdAt).toDateString()}</span>
+                <span className="postDate">{ new Date(post.createdAt).toDateString()}</span>
             </div>
             <p className="postDesc">{post.desc}</p>
         </div>
