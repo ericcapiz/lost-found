@@ -37,7 +37,7 @@ const SinglePost = () => {
     const handleUpdate = async()=>{
         try {
             await axios.put(`/posts/${post._id}`,  {username:user.username, title, desc})
-            window.location.reload()
+            setUpdateMode(false);
         } catch (error) {
             console.log(error)
         }
@@ -53,7 +53,7 @@ const SinglePost = () => {
 
                        
                 <h1 className="singlePostTitle">
-                    {post.title}
+                    {title}
                     {post.username === user?.username && (
                         <div className="singlePostEdit">
                             <i className="singlePostIcon fas fa-edit" onClick={()=>setUpdateMode(true)} ></i>
@@ -70,7 +70,7 @@ const SinglePost = () => {
                 {updateMode ? ( <textarea value={desc}  className="singlePostDescInput" onChange={(e)=>setDesc(e.target.value)} /> 
                 ):(
                     
-                    <p className="singlePostDesc">{post.desc}</p>
+                    <p className="singlePostDesc">{desc}</p>
                 
                     )}
                     {updateMode && (

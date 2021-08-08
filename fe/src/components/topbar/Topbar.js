@@ -5,7 +5,7 @@ import "./topbar.css"
 
 const Tobar = () => {
     const {user,dispatch} = useContext(Context);
-
+    const PF = "http://localhost:5000/images/"
 
     const handleLogout = ()=>{
         dispatch({type:"LOGOUT"});
@@ -36,7 +36,7 @@ const Tobar = () => {
                     user ? (
                         <>
                             <p style={{marginRight:"15px"}}>Welcome, {user.username.toUpperCase()}</p>
-                            <img className="topImg" alt="" src={user.profilePic}/>
+                            <img className="topImg" alt="" src={PF + user.profilePic}/>
                             <Link className="link" to="/settings">Account Settings</Link>
                         </>
                     ):(
