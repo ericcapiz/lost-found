@@ -3,6 +3,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import {Context} from "../../context/Context";
 import axios from 'axios';
 import "./settings.css";
+import { Link } from "react-router-dom";
 
 
 
@@ -54,7 +55,7 @@ const Settings = () => {
         <div className="settings">
             <div className="settingsWrapper">
                 <div className="settingsTitle">
-                    <span className="settingsTitleUpdate">Update Account</span>
+                    <span className="settingsTitleUpdate">Update Account: MUST UPDATE EVERYTHING</span>
                     {/* <span className="settingsTitleDelete">Delete Account</span> */}
                 </div>
                 <form className="settingsForm" onSubmit={handleSubmit} >
@@ -72,7 +73,10 @@ const Settings = () => {
                     <input type="email" placeholder={user.email} onChange={e=>setEmail(e.target.value)} />
                     <label>Password</label>
                     <input type="password" onChange={e=>setPassword(e.target.value)} />
+                    <div className="buttons">
                     <button className="settingsSubmitButton" type="submit">Save Changes</button>
+                    <Link to="/" className="link"><button className="settingsCancelButton" type="submit">Cancel Changes</button></Link>
+                    </div>
                     {success && <span style={{color:"green", textAlign:"center", marginTop:"20px"}}>Profile Updated Sucessfully!</span>}
                 </form>
             </div>

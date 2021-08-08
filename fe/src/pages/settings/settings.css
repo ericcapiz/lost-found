@@ -89,13 +89,34 @@
     color: white;
     background-color: #e62746;
     padding: 10px;
-    margin-top: 20px;
+    margin: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
+  .buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   
+  .settingsCancelButton {
+    align-self: center;
+    width: 150px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: darkslategrey;
+    padding: 10px;
+    
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 15px;
+  }
   .settingsSubmitButton:hover {
     background-color: rgb(156, 8, 8);
   }
