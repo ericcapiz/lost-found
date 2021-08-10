@@ -69,3 +69,15 @@
     color: #666;
     cursor: pointer;
   }
+
+  @media (max-width: 768px){
+    .topImg, .set{
+      display: none;
+    }
+    .greet{
+      font-size: 14px;
+    }
+    .topListItem{
+      font-size: 15px;
+    }
+  }

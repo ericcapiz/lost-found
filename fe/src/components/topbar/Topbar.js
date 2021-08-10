@@ -35,9 +35,9 @@ const Tobar = () => {
                 {
                     user ? (
                         <>
-                            <p style={{marginRight:"15px"}}>Welcome, {user.username}</p>
+                            <p className="greet" style={{marginRight:"15px"}}>Welcome, {user.username}</p>
                             <img className="topImg" alt="" src={PF + user.profilePic}/>
-                            <Link className="link" to="/settings">Settings</Link>
+                            <Link className="link set" to="/settings">Settings</Link>
                         </>
                     ):(
                         <ul className="topList">

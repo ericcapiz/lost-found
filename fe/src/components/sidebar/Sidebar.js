@@ -21,7 +21,7 @@ const Sidebar = () => {
                 <p>Welcome to the community lost & found. Lost something incredibly valuable? Fear not, people are always willingly to report items that have been found. Please create a post describing in detail, the item, and upload an image of the item if you have one. If not, upload an image that closely resembles the lost item. Please include a way of contact, email would be just fine. </p>
                 <p>If you found an item, create a post and a way for someone to contact you. Preferably an email.</p>
             </div>
-            <div className="sidebarItem">
+            <div className="sidebarItem sbi">
                 <span className="sidebarTitle">SORT BY CATEGORY</span>
                 <p>Here are some key categories. You can click on one to sort posts by category. When posting, you can also add your own category. Remember to be specific!</p>
                 <ul className="sidebarList">
@@ -30,7 +30,7 @@ const Sidebar = () => {
                     ))}
                 </ul>
             </div>
-            <div className="sidebarItem">
+            <div className="sidebarItem sbi">
                 <span className="sidebarTitle">FOLLOW US</span>
                 <div className="sidebarSocial">
                     <i className="sidebarIcon fab fa-facebook-square"></i>
