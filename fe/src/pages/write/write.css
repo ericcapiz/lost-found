@@ -78,7 +78,17 @@
 
   @media(max-width:768px){
     .writeFormGroup{
-      margin: 0;
+      margin-left: 75px;
+      margin-bottom: 20px;
       justify-content: center;
+    }
+    .writeImg{
+      object-fit: scale-down;
+      margin-left: 40px;
+    }
+    .writeSubmit{
+      top: 100%;
+      left: 50%;
+      margin: 30px 0; 
     }
   }

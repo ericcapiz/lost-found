@@ -116,3 +116,11 @@
     align-self: center;
     margin-top: 20px;
   }
+
+  @media(max-width:768px){
+    .singlePostImg{
+      width: 100%;
+      object-fit: scale-down;
+     margin-left: 60px;
+    }
+  }

@@ -61,3 +61,14 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
   }
+
+  @media(max-width:768px){
+    .post{
+      width: 100%;
+      margin-left: 75px;
+    }
+     .postImg{
+      width: 100%;
+      object-fit: scale-down;
+    }
+  }

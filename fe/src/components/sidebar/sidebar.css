@@ -67,6 +67,10 @@
 }
 
 @media(max-width:768px){
+  .sidebar{
+    /* margin-left: 50px; */
+    display: none;
+  }
   .sbi{
     display: none;
   }
