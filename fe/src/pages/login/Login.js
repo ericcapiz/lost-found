@@ -35,6 +35,9 @@ const Login = () => {
                <button className="loginBtn" disabled={isFetching} type="submit">Login</button>
            </form>
            <button className="registerBtn"><Link className="link" to="/register">Register</Link></button>
+           <br /><p>Demo Login:</p>
+           <br /><p>Username: demo (lowercase)</p>
+           <br /><p>Password: password (lowercase)</p>
         </div>
     )
 }
