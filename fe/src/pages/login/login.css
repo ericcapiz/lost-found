@@ -66,3 +66,14 @@
     color: white;
     border-radius: 10px;
   }
+
+  @media(max-width:768px){
+    .login{
+      /* margin-top: 40px; */
+      height: calc(100vh + 50px);
+      width: 100%;
+    }
+    .registerBtn{
+     display: none;
+    }
+  }

@@ -35,7 +35,7 @@
 
   @media(max-width:768px){
     .header{
-      display: flex;
+      display: none;
       width: 100%;
       justify-content: center;
     }
@@ -47,8 +47,9 @@
       
     }
     .headerImg{
-      justify-content: center;
-      width: 100%;
-      margin-left: 75px;
+      /* width: 100%; */
+      margin: 0 20px;
+  
+      object-fit: scale-down;
     }
   }

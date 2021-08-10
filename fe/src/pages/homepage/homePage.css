@@ -2,8 +2,4 @@
     display: flex;
   }
 
-  @media(max-width:768px){
-    .home{
-      flex-direction: column-reverse;
-    }
-  }
+ 
