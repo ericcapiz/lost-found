@@ -9,6 +9,8 @@ const categoryRoute = require("./routes/categoryRoute");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
+const cloudinary = require("cloudinary").v2
+
 
 
 
@@ -18,6 +20,7 @@ app.use(cors());
 app.use("/images", express.static(path.join(__dirname,"/images")));
 
 
+
 mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -25,7 +28,8 @@ mongoose.connect(process.env.MONGO_URL,{
     useFindAndModify: false
 }).then(console.log("Connected to MongoDB")).catch((err)=> console.log(err))
 
-
+//##########################################################
+//ORIGIN
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, "images");
@@ -36,10 +40,12 @@ const storage = multer.diskStorage({
   });
   
   const upload = multer({ storage: storage });
+
   app.post("/api/upload", upload.single("file"), (req, res) => {
     res.status(200).json("File has been uploaded");
   });
 
+//##########################################################
 
 app.get("/",(req,res)=>{
     res.json({api:"API IS UP"})
