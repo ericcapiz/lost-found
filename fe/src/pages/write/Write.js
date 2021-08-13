@@ -9,7 +9,9 @@ const Write = () => {
     const [cat, setCat] = useState([]);
     const [file, setFile] = useState(null);
     const {user} = useContext(Context);
+    const [url, setUrl] = useState("");
 
+    
     const handleSubmit = async (e) =>{
         e.preventDefault();
         const newPost = {
@@ -17,32 +19,67 @@ const Write = () => {
             title,
             desc,
             categories: cat,
+            photo:url,
         };
 
 
 
-        if(file){
-            const data = new FormData();
-            //removed Date.now() + below
-            const filename = file.name;
-            data.append("name", filename);
-            data.append("file",file);
-            newPost.photo = filename;
+        //##########################################################
+        //ORIGIN
+    //     if(file){
+    //         const data = new FormData();
+    //         //removed Date.now() + below
+    //         const filename = file.name;
+    //         data.append("name", filename);
+    //         data.append("file",file);
+    //         newPost.photo = filename;
 
+    //         try {
+    //             await axios.post("https://lost-my-stuff.herokuapp.com/api/upload", data);
+    //         } catch (error) {
+    //             console.log(error);
+    //         }
+    //     }
+    //     try {
+    //       const res = await axios.post("https://lost-my-stuff.herokuapp.com/api/posts", newPost);
+    //       window.location.replace("/post/" + res.data._id);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
+    //##########################################################
+
+        
+            if(file){
+                const data = new FormData();
+                
+                // const filename = file.name;
+                data.append("file",file);
+                data.append("upload_preset","lost-my-stuff");
+                data.append("cloud_name", "dzckc7kxv")
+                // newPost.photo = url;
+                try {
+                  await axios.post("https://api.cloudinary.com/v1_1/dzckc7kxv/image/upload",data)
+                  .then ((data)=>{
+                    setUrl(data.data.url)
+                    
+                    console.log("url state",url)
+                    }).catch(err=>{console.log(err)})
+                    
+                } catch (error) {
+                    console.log(error);
+                }
+            }
             try {
-                await axios.post("https://lost-my-stuff.herokuapp.com/api/upload", data);
+              const res = await  axios.post("https://lost-my-stuff.herokuapp.com/api/posts", newPost);
+            //   window.location.replace("/post/" + res.data._id);
+            console.log("new p", newPost)
+              
             } catch (error) {
                 console.log(error);
             }
         }
-        try {
-          const res = await axios.post("https://lost-my-stuff.herokuapp.com/api/posts", newPost);
-          window.location.replace("/post/" + res.data._id);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-    console.log(cat)
+
     return (
         <div className="write">
             {file && (

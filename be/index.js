@@ -7,9 +7,11 @@ const userRoute = require("./routes/usersRoute");
 const postRoute = require("./routes/postsRoute");
 const categoryRoute = require("./routes/categoryRoute");
 const multer = require("multer");
+const multerS3 = require('multer-s3');
+const aws = require('aws-sdk');
 const path = require("path");
 const cors = require("cors");
-const cloudinary = require("cloudinary").v2
+
 
 
 
@@ -30,23 +32,33 @@ mongoose.connect(process.env.MONGO_URL,{
 
 //##########################################################
 //ORIGIN
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, "images");
-    },
-    filename: (req, file, cb) => {
-      cb(null, req.body.name);
-    },
-  });
+//  const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//       cb(null, "images");
+//     },
+//     filename: (req, file, cb) => {
+//       cb(null, req.body.name);
+//     },
+//   });
   
-  const upload = multer({ storage: storage });
+//   const upload = multer({ storage: storage });
 
-  app.post("/api/upload", upload.single("file"), (req, res) => {
-    res.status(200).json("File has been uploaded");
-  });
+//   app.post("/api/upload", upload.single("file"), (req, res) => {
+//     res.status(200).json("File has been uploaded");
+//   });
 
 //##########################################################
+//NEW
 
+
+
+
+
+
+
+
+
+//##########################################################
 app.get("/",(req,res)=>{
     res.json({api:"API IS UP"})
 })

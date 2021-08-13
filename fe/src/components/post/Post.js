@@ -1,16 +1,14 @@
-import { useContext } from "react"
+
 import { Link } from "react-router-dom"
-import { Context } from "../../context/Context"
 import "./post.css"
 
 const Post = ({post}) => {
-    const {user} = useContext(Context);
-    console.log("user here",user)
-    const PF = "https://lost-my-stuff.herokuapp.com/images/"
+    
+    console.log(post)
     return (
         <div className="post">
             {post.photo && (
-                <img className="postImg" alt="lost" src={PF + post.photo} />
+                <img className="postImg" alt="lost" src={ post.photo} />
             )}
             <div className="postInfo">
             <Link className="link" to={`/post/${post._id}`}>
