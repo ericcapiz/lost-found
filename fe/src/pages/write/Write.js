@@ -61,8 +61,8 @@ const Write = () => {
                 try {
                   await axios.post("https://api.cloudinary.com/v1_1/dzckc7kxv/image/upload",data)
                   .then ((data)=>{
-                    newPost.photo=data.data.url
-                    
+                    newPost.photo=data.data.secure_url
+                    console.log("url", data)
                     
                     }).catch(err=>{console.log(err)})
                     
@@ -72,7 +72,7 @@ const Write = () => {
             }
             try {
               const res = await  axios.post("https://lost-my-stuff.herokuapp.com/api/posts", newPost);
-              window.location.replace("/post/" + res.data._id);
+            //   window.location.replace("/post/" + res.data._id);
             console.log("new p", newPost)
               
             } catch (error) {

@@ -38,7 +38,7 @@ const Settings = () => {
             try {
               await axios.post("https://api.cloudinary.com/v1_1/dzckc7kxv/image/upload",data)
               .then ((data)=>{
-                updatedUser.profilePic = data.data.url
+                updatedUser.profilePic = data.data.secure_url
                 
                 
                 }).catch(err=>{console.log(err)})

@@ -8,7 +8,6 @@ const SinglePost = () => {
     const location = useLocation();
     const path = location.pathname.split("/")[2];
     const [post,setPosts] = useState({})
-    const PF = "https://lost-my-stuff.herokuapp.com/images/"
     const {user} = useContext(Context);
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
