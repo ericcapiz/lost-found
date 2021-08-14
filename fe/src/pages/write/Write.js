@@ -9,7 +9,7 @@ const Write = () => {
     const [cat, setCat] = useState([]);
     const [file, setFile] = useState(null);
     const {user} = useContext(Context);
-    const [url, setUrl] = useState("");
+    
 
     
     const handleSubmit = async (e) =>{
@@ -19,7 +19,7 @@ const Write = () => {
             title,
             desc,
             categories: cat,
-            photo:url,
+            
         };
 
 
@@ -57,13 +57,13 @@ const Write = () => {
                 data.append("file",file);
                 data.append("upload_preset","lost-my-stuff");
                 data.append("cloud_name", "dzckc7kxv")
-                // newPost.photo = url;
+                
                 try {
                   await axios.post("https://api.cloudinary.com/v1_1/dzckc7kxv/image/upload",data)
                   .then ((data)=>{
-                    setUrl(data.data.url)
+                    newPost.photo=data.data.url
                     
-                    console.log("url state",url)
+                    
                     }).catch(err=>{console.log(err)})
                     
                 } catch (error) {

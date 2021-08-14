@@ -46,7 +46,7 @@ const SinglePost = () => {
         <div className="singlePost">
             <div className="singlePostWrapper">
                 {post.photo && (
-                    <img className="singlePostImg" src={PF + post.photo} alt="post" />
+                    <img className="singlePostImg" src={post.photo} alt="post" />
                     )}
                     {
                         updateMode ? <input type="text" className="singlePostTitleInput" value={title} onChange={(e)=>setTitle(e.target.value)} /> : (

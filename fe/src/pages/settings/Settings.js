@@ -29,14 +29,20 @@ const Settings = () => {
 
         if(file){
             const data = new FormData();
-            //removed Date.now() + below
-            const filename = file.name;
-            data.append("name", filename);
+            
+            // const filename = file.name;
             data.append("file",file);
-            updatedUser.profilePic = filename;
-
+            data.append("upload_preset","lost-my-stuff");
+            data.append("cloud_name", "dzckc7kxv")
+            
             try {
-                await axios.post("https://lost-my-stuff.herokuapp.com/api/upload", data);
+              await axios.post("https://api.cloudinary.com/v1_1/dzckc7kxv/image/upload",data)
+              .then ((data)=>{
+                updatedUser.profilePic = data.data.url
+                
+                
+                }).catch(err=>{console.log(err)})
+                
             } catch (error) {
                 console.log(error);
             }
